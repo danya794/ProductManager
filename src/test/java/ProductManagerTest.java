@@ -18,13 +18,22 @@ public class ProductManagerTest {
         ProductRepository.save(product3);
         ProductRepository.save(product4);
 
-        Product[] expected = {product1, product2, product3, product4};
+        Product[] expected = {product4};
         Product[] actual = ProductManager.searchBy(product4.getName());
 
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
     public void addProduct() {
+        ProductManager manager = new ProductManager();
+        ProductRepository repository = new ProductRepository();
+
+        ProductRepository.save(product1);
+        ProductRepository.save(product2);
+        ProductRepository.save(product3);
+        ProductRepository.save(product4);
+
+
         Product[] expected = {product1, product2, product3, product4};
         Product[] actual = ProductRepository.findAll();
 
