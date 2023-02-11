@@ -1,8 +1,8 @@
-public class ProductRepository {
-    private static Product[] products = new Product[0];
+public class Repository {
+    private Product[] products = new Product[0];
 
 
-    public static void save(Product product) {
+    public void add(Product product) {
         Product[] tmp = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];
@@ -11,16 +11,16 @@ public class ProductRepository {
         products = tmp;
     }
 
-    public static Product[] findAll() {
+    public Product[] findAll() {
         return products;
     }
 
-    public static void removeById(int id) {
+    public void removeById(int removeId) {
         int length = products.length - 1;
         Product[] tmp = new Product[length];
         int index = 0;
         for (Product item : products) {
-            if (item.getId() != id) {
+            if (item.getId() != removeId) {
                 tmp[index] = item;
                 index++;
             }

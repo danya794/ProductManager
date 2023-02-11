@@ -1,18 +1,17 @@
-public class ProductManager {
-    private static ProductRepository repository;
-    private int id;
-    private String name;
-    private int price;
-    // добавьте необходимые поля, конструкторы и методы
+public class Manager {
+    Repository repository;
 
-
-    public void add(Product product) {
-        ProductRepository.save(product);
+    public Manager(Repository repository) {
+        this.repository = repository;
     }
 
-    public static Product[] searchBy(String text) {
+    public void add(Product product) {
+        repository.add(product);
+    }
+
+    public Product[] searchBy(String text) {
         Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
-        for (Product product : ProductRepository.findAll()) {
+        for (Product product : repository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
@@ -26,7 +25,7 @@ public class ProductManager {
     }
 
     // метод определения соответствия товара product запросу search
-    public static boolean matches(Product product, String search) {
+    public boolean matches(Product product, String search) {
         if (product.getName().contains(search)) {
             return true;
         } else {
