@@ -174,23 +174,4 @@ public class ManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
-    /*@Test
-    public void searchByWhenFoundAFewAuthorsOfBooksTest() {
-        Repository repository = new Repository();
-        Manager manager = new Manager(repository);
-
-        Book book1 = new Book(3, "Маленький принц 1", 400, "Антуан де Сент-Экзюпери");
-        Book book2 = new Book(4, "Денискины рассказы", 500, "Виктор Драгунский");
-        Book book3 = new Book(6, "Маленький принц 2", 700, "Антуан де Сент-Экзюпери");
-
-        manager.add(book1);
-        manager.add(book2);
-        manager.add(book3);
-
-        Product[] expected = {book1, book3};
-        Product[] actual = manager.searchBy("Антуан");
-
-        Assertions.assertArrayEquals(expected, actual);
-    }*/
 }
